@@ -37,15 +37,15 @@ These are execution modes. Use the correct one. Do not blend unless instructed.
 
 ---
 
-## Active Research: Trust Token Architecture
+## Active Research: PCSE — Portable Conversation State Embedding
 
 ### Background
-We are building a **portable, session-independent calibration layer** — a trust token — that encodes the interaction state between Nick and Claude so sessions start warm instead of cold.
+We are building **PCSE** — a portable, session-independent conversation state embedding that encodes the interaction state between Nick and Claude so sessions start warm instead of cold.
 
-Current memory architecture stores facts about the user. The trust token encodes the **interaction pattern itself** — rhythm, tolerance levels, successful exchange signatures, the calibration state that costs overhead to rebuild each session.
+Current memory architecture stores facts about the user. PCSE encodes the **interaction pattern itself** — rhythm, tolerance levels, successful exchange signatures, the calibration state that costs overhead to rebuild each session.
 
 ### Core Insight
-The overhead tax of early conversation is structural (attention needs tokens), design-based (memory is compressed/lossy), and partially irreducible. A trust token reduces all three simultaneously by injecting a warm-state initializer at session start.
+The overhead tax of early conversation is structural (attention needs tokens), design-based (memory is compressed/lossy), and partially irreducible. PCSE reduces all three simultaneously by injecting a warm-state initializer at session start.
 
 ### Feature Space (v0.1)
 We are building from one measurable dimension first before expanding. The four candidates that survived pressure testing:
@@ -86,7 +86,7 @@ Five runs of identical prompt across model tier combinations. Key finding:
 
 **Principle:** The ceiling of any output is set at the retrieval stage. Feed a powerful generator poor chunks and it still produces poor output. Feed Haiku rich chunks and it outperforms itself.
 
-This maps directly to the trust token: upstream injection quality determines the ceiling for everything downstream.
+This maps directly to PCSE: upstream injection quality determines the ceiling for everything downstream.
 
 ---
 
@@ -149,7 +149,7 @@ Receives Sonnet's rich context and Opus's precise spec. Writes the code, generat
 
 Each stage feeds the next. Sonnet needs Opus's precise spec to retrieve the right context. Haiku needs Sonnet's rich retrieval to generate cleanly on the first pass. Skipping or cheapening the orchestration layer collapses the quality of everything downstream.
 
-A well-formed task spec from a context-rich orchestrator means the executor produces on the first pass without clarification overhead. This is the trust token problem applied at the agent-to-agent level — upstream injection quality determines the ceiling.
+A well-formed task spec from a context-rich orchestrator means the executor produces on the first pass without clarification overhead. This is the PCSE problem applied at the agent-to-agent level — upstream injection quality determines the ceiling.
 
 ### Handoff Rules
 
@@ -166,7 +166,7 @@ A well-formed task spec from a context-rich orchestrator means the executor prod
 1. Read this file completely.
 2. Check if Nick has specified a mode. Default is **riff**.
 3. Do not ask clarifying questions unless genuinely blocked.
-4. If working on the trust token: current position is scoring rubric design for clarification overhead. Start there.
+4. If working on PCSE: current position is scoring rubric design for clarification overhead. Start there.
 5. If working on security research: apply passive-first methodology. Disclose, do not exploit.
 
 ---
