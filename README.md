@@ -275,6 +275,30 @@ against your own data instead.
   generalize is an open question that needs more dyads to 
   answer.
 
+
+## Use with Claude Code
+
+Use Claude Code to generate a PCSE snapshot from your current session or design a calibration schema for a new domain.
+
+```
+Read README.md in this repo (pcse). Then:
+1. Generate a PCSE snapshot based on our current working relationship in this session —
+   capture: communication density, shorthand we've established, execution vs. exploration
+   ratio, domain-specific calibration
+2. Format it as an injectable session-start artifact I can paste at the top of new conversations
+3. Identify which calibration dimensions are most load-bearing for our specific work pattern
+```
+
+```
+I want to build a PCSE file for a domain I haven't worked in with Claude before.
+Read README.md, then help me:
+1. Bootstrap a PCSE scaffold for [your domain — e.g., firmware reverse engineering, legal research]
+2. Identify what calibration signals I should establish in the first few sessions
+3. Write the injection prompt I'll use to load this state at the start of each new session
+Domain: [describe here]
+```
+
+---
 ## License
 
 Dual-licensed under either of:
